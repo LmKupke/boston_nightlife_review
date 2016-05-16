@@ -10,7 +10,15 @@ describe User do
   it { should have_valid(:email).when("warthogbran@got.com", "hodor@gmail.com") }
   it { should_not have_valid(:email).when(nil, '', 'warthog', 'warthog@com', 'wartha.com') }
 
+  it 'has a matching password confirmation for the password' do
+    user = User.new
+    user.password = 'password'
+    user.password_confirmation = 'anotherpassword'
 
+    expect(user).to_not be_valid
+    expect(user.errors[:password_confirmation]).to_not be_blank
+  end
+  
   describe '.fname' do
     it 'returns the first name of the user' do
       fname = create(:user, fname: "Arya").fname
