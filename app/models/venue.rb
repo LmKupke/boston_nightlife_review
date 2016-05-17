@@ -12,6 +12,7 @@ class Venue < ActiveRecord::Base
   validates :vtype, presence: true, allow_nil: false, allow_blank: false, inclusion: { in: ["Bar", "Club"] }
   validates :neighborhood, presence: true, allow_nil: false, allow_blank: false, inclusion: {in: NEIGHBORHOODS }
 
+
   def address
     return "#{self.streetnumber} #{self.streetname}"
   end
