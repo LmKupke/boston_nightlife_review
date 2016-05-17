@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :venue do
-    user_id 1
+    
     vname "Dillion's"
     price 2
     cover true

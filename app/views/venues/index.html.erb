@@ -1,0 +1,7 @@
+<h2>Nightlife in Boston</h2>
+
+<% @venues.each do |venue| %>
+  <div class="venue">
+    <%= link_to venue.vname, venue_path(venue.id) %>
+  </div>
+<% end %>
