@@ -13,7 +13,7 @@ feature 'sign_up', %Q{
   # * If I specify valid info, I register my account and am authenticated
 
   scenario 'specify valid and required information' do
-
+    visit root_path
     click_link 'Sign Up'
     fill_in 'First Name', with: 'Jon'
     fill_in 'Last Name', with: "Snow"
