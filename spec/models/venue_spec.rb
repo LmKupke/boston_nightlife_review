@@ -28,7 +28,6 @@ describe Venue do
   describe '#address' do
     it 'returns a string of the address' do
       venue = create(:venue)
-      binding.pry
       expect(venue.address).to eq("955 Boylston Street")
     end
   end

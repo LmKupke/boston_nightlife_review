@@ -7,10 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/messages' %>
 <nav>
   <ul>
     <li>
       <%= link_to 'Sign Up', new_user_registration_path %>
+    </li>
+    <li>
+      <%= link_to 'Sign Out', '#' %>
     </li>
   </ul>
 </nav>
