@@ -2,7 +2,8 @@ require 'rails_helper'
 
 
 feature 'user signs in', %Q{
-  As a users I want to sign in
+  As a user
+  I want to sign in
   So that I can have access to writing reviews and adding bars/clubs
 } do
 
@@ -21,6 +22,7 @@ feature 'user signs in', %Q{
     click_button 'Log In'
 
     expect(page).to have_content("Welcome Back!")
+    expect(page).to have_button('Add Bar or Club')
     expect(page).to have_content("Sign Out")
   end
   scenario 'a nonexistant email and password is supplied' do

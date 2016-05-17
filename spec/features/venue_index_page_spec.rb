@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 feature 'vistor goes to homepage', %Q{
-  As a visitor I want to see all bars/clubs
+  As a visitor
+  I want to see all bars/clubs
   So that I can see what has been reviewed
 } do
 

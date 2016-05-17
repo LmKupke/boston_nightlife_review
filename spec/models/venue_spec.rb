@@ -8,7 +8,7 @@ describe Venue do
   it { should_not have_valid(:vname).when(nil, '') }
 
   it { should have_valid(:price).when(1, 2, 3) }
-  it { should_not have_valid(:price).when(nil, '', 0, 4) }
+  it { should_not have_valid(:price).when(nil, '', 0, 5) }
 
   it { should have_valid(:cover).when(true) }
   it { should_not have_valid(:cover).when(nil, '') }

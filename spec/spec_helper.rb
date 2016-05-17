@@ -21,6 +21,8 @@ SimpleCov.start 'rails'
 require 'coveralls'
 Coveralls.wear!('rails')
 
+
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -89,10 +91,14 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = :random
 
+
+
   # Seed global randomization in this process using the `--seed` CLI option.
   # Setting this allows you to use `--seed` to deterministically reproduce
   # test failures related to randomization by passing the same `--seed` value
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
+
+
 end
