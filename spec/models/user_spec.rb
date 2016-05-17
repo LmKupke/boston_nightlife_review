@@ -18,7 +18,7 @@ describe User do
     expect(user).to_not be_valid
     expect(user.errors[:password_confirmation]).to_not be_blank
   end
-  
+
   describe '.fname' do
     it 'returns the first name of the user' do
       fname = create(:user, fname: "Arya").fname
@@ -53,7 +53,7 @@ describe User do
 
   describe '.password' do
     it 'returns the password of the user' do
-      user = create(:user, password: "manyfacedgod")
+      user = create(:user, password: "manyfacedgod", password_confirmation: "manyfacedgod")
   	  result = user.password
   	  expect(result).to eq("manyfacedgod")
     end
