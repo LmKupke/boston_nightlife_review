@@ -48,7 +48,7 @@ feature 'sign_up', %Q{
     fill_in 'Password Confirmation', with: 'differentpassword'
     click_button 'Sign Up'
 
-    # save_and_open_page
+    
     expect(page).to have_content("doesn't match Password")
     expect(page).to_not have_content("Sign Out")
   end
