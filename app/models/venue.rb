@@ -11,8 +11,8 @@ class Venue < ActiveRecord::Base
   validates :streetname, presence: true, length: { minimum: 5 }, allow_nil: false, allow_blank: false, format: { with: /\A[a-zA-Z ]+\z/ }
   validates :vtype, presence: true, allow_nil: false, allow_blank: false, inclusion: { in: ["Bar", "Club"] }
   validates :neighborhood, presence: true, allow_nil: false, allow_blank: false, inclusion: {in: NEIGHBORHOODS }
-
-
+  validates :user, presence: true
+  belongs_to :user
   def address
     return "#{self.streetnumber} #{self.streetname}"
   end

@@ -8,5 +8,7 @@ FactoryGirl.define do
     streetname "Boylston Street"
     vtype "Bar"
     neighborhood "Back Bay"
+
+    user
   end
 end
