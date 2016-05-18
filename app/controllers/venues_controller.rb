@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
   before_filter :authenticate_user!, except: [:show, :index]
+
   NEIGHBORHOODS = [ "North End", "Waterfront","Financial District", "Back Bay",
     "Beacon Hill", "Chinatown", "Seaport", "South End", "Roxbury", "Dorchester", "Mattapan", "East Boston", "South Boston", "Jamaica Plain", "Allston", "Brighton", "Brookline", "Cambridge", "Somerville"]
 

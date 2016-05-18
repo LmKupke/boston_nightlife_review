@@ -1,0 +1,23 @@
+<h2>Admin Access</h2>
+
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Full Name</th>
+    <th>Role</th>
+    <th>Email</th>
+    <th>Joined</th>
+    <th></th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.username,admin_user_path(user.id), method: :get %></td>
+      <td><%= user.fullname %></td>
+      <td><%= user.role.capitalize %></td>
+      <td><%= user.email %></td>
+      <td><%= user.created_at.strftime("%D") %></td>
+      <td><%= button_to 'Delete', admin_user_path(user.id), id: "delete-#{user.username}", method: :delete %></td>
+    </tr>
+  <% end %>
+
+</table>

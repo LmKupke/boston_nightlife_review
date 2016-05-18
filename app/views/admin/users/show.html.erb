@@ -1,0 +1,61 @@
+<h1><%= @user.fullname %></h1>
+
+<ul>
+  <li><b>Username:</b> <%= @user.username %></li>
+  <li><b>Email:</b> <%= @user.email %></li>
+  <li><b>Role:</b> <%= @user.role.capitalize %></li>
+  <li><b>Date Joined:</b> <%= @user.created_at.strftime("%D") %></li>
+</ul>
+
+<h2>Bar/Club Submissions</h2>
+<% if @venues.empty? == false %>
+  <table>
+    <tr>
+      <th>Date Added</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Type</th>
+      <th>Neighborhood</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <% @venues.each do |venue| %>
+      <td><%= venue.created_at.strftime("%D") %></td>
+      <td><%= venue.vname %></td>
+      <td><%= venue.address %></td>
+      <td><%= venue.vtype %></td>
+      <td><%= venue.neighborhood %></td>
+      <td><%= button_to "Edit", edit_venue_path(venue.id), method: :get %></td>
+      <td><%= button_to "Delete", venue_path(venue.id), method: :delete %></td>
+    <% end %>
+  </table>
+
+<% else %>
+  <p>User has no Bar/Club Submissions</p>
+<% end %>
+
+
+<h2>Reviews</h2>
+<% if @reviews.empty? == false %>
+  <table>
+    <tr>
+      <th>Date Added</th>
+      <th>Venue</th>
+      <th>Rating</th>
+      <th>Description</th>
+      <th></th>
+    </tr>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.created_at.strftime("%D") %></td>
+        <td><%= review.venue.vname %></td>
+        <td><%= review.venue_rating %></td>
+        <td><%= review.description %></td>
+        <td><%= button_to "Delete", admin_review_path(review.id), method: :delete %></td>
+      </tr>
+
+    <% end %>
+  </table>
+<% else %>
+  <p>User has no reviews</p>
+<% end %>
