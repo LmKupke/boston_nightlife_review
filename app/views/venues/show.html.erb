@@ -8,7 +8,8 @@
   <% @reviews.each do |review| %>
     <div class="review">
         <%= review.user.username %>
-        <%= review.created_at %> <br>
+        <% d = review.created_at %>
+        <%= d.strftime("%D") %><br>
 
         Rating: <%= review.venue_rating.to_i %>
         <p><%= review.description %></p>
