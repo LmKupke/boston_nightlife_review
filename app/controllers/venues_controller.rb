@@ -9,7 +9,7 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
-    @reviews = @venue.reviews
+    @reviews = @venue.reviews.order(created_at: :desc)
     @review = Review.new
   end
 
