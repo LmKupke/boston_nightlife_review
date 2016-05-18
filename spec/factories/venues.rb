@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :venue do
-    
-    vname "Dillion's"
+
+    sequence(:vname) { |n| "Dillion's#{n}" }
     price 2
     cover true
     streetnumber 955

@@ -1,1 +1,17 @@
 <h2><%= @venue.vname %></h2>
+
+<%= render 'review_form' %>
+<br>
+<br>
+
+<% if @reviews != nil || @reviews.empty? == false %>
+  <% @reviews.each do |review| %>
+    <div class="review">
+        <%= review.user.username %>
+        <%= review.created_at %> <br>
+
+        Rating: <%= review.venue_rating.to_i %>
+        <p><%= review.description %></p>
+    </div>
+  <% end %>
+<% end  %>

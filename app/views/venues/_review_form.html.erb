@@ -1,0 +1,8 @@
+
+<%= simple_form_for (@review), method: "post", url: venue_reviews_path(@venue.id) do |f| %>
+  <%= f.label :venue_rating,label: "Rating" %>
+  <%= f.collection_radio_buttons :venue_rating, [[1, '*'], [2, '**'], [3, '***'], [4, '****'], [5, '*****']], :first, :last %> <br>
+  <%= f.input :description, as: :text %>
+
+  <%= f.button :submit, "Add a Review" %>
+<% end %>
