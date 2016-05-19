@@ -1,0 +1,16 @@
+<%= simple_form_for (@venue), method: @method , url: @url do |f| %>
+  <%= f.input :vname, label: "Name" %>
+  <%= f.input :streetnumber, label: "Street Number" %>
+  <%= f.input :streetname, label: "Street Name" %>
+  <%= f.label :neighborhood, label: "Neighborhood" %>
+  <%= f.select(:neighborhood, @neighborhoods.map { |value| [ value, value ] }, include_blank: false)  %> <br>
+  <%= f.label :vtype, label: "Bar or Club?" %>
+  <%= f.select(:vtype, [['Bar', 'Bar'], ['Club', 'Club']]) %> <br>
+  <%= f.label :price, label: "Price" %>
+  <%= f.select(:price, [['$', 1], ['$$', 2],['$$$', 3],['$$$$', 4]]) %> <br>
+  <%= f.label :cover, label: "Cover" %>
+  <%= f.collection_radio_buttons :cover, [[true, 'Yes'], [false, 'No']], :first, :last %> <br>
+
+
+  <%= f.button :submit, @label %>
+<% end %>

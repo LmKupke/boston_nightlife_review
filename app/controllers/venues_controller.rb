@@ -14,10 +14,24 @@ class VenuesController < ApplicationController
     @review = Review.new
   end
 
+  def edit
+    venue_id = params[:id]
+    @venue = Venue.find(venue_id)
+    @neighborhoods = NEIGHBORHOODS.sort
+    @method = "patch"
+    @url = venue_path
+    @label = "Update Business"
+
+    render :edit
+  end
+
   def new
     if current_user != nil
       @venue = Venue.new
       @neighborhoods = NEIGHBORHOODS.sort
+      @method = "post"
+      @url = venues_path
+      @label = "Add Business"
     else
       render :index
     end
@@ -36,7 +50,16 @@ class VenuesController < ApplicationController
   end
 
   def update
+    venue_id = params[:id]
+    @venue = Venue.find(venue_id)
 
+
+    if @venue.update(venue_params)
+      redirect_to venue_path(@venue.id), notice: "Admin successfully updated page"
+    else
+      @neighborhood = NEIGHBORHOODS.sort
+      render :edit
+    end
   end
 
   def destroy

@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
 
   def index
-    @users = User.all
+    @users = User.all.order(role: :asc, fname: :asc)
     @reviews = Review.all
   end
 

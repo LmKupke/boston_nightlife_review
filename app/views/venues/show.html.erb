@@ -1,5 +1,23 @@
 <h2><%= @venue.vname %></h2>
 
+<ul>
+  <li>Address: <%= @venue.address %></li>
+  <li>Neighborhood:  <%= @venue.neighborhood %></li>
+  <% if @venue.price == 4 %>
+    <li>Price: $$$$</li>
+  <% elsif @venue.price == 3 %>
+    <li>Price: $$$</li>
+  <% elsif @venue.price == 2 %>
+    <li>Price: $$</li>
+  <% else %>
+    <li>Price: $</li>
+  <% end %>
+  <% if @venue.cover == true %>
+    <li>Cover: Yes</li>
+  <% else %>
+    <li>Cover: No</li>
+  <% end %>
+</ul>
 <%= render 'review_form' %>
 <br>
 <br>
