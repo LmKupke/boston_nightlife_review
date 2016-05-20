@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   validates :lname, presence: true
   validates :email, presence: true, allow_nil: false, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
+  mount_uploader :profile_photo, ProfilePhotoUploader
+
+
   has_many :venues
   has_many :reviews
   # Include default devise modules. Others available are:
