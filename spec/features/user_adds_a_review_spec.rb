@@ -31,6 +31,7 @@ feature 'user creates a new review on a venue', %Q(
   end
 
   scenario "an authenticated user adds new valid review" do
+    ActionMailer::Base.deliveries.clear
     venue = create(:venue)
     user = create(:user)
     visit root_path
@@ -46,6 +47,7 @@ feature 'user creates a new review on a venue', %Q(
     expect(page).to have_content(user.username)
     expect(page).to have_content('***')
     expect(page).to have_content("#{'a' * 70}")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
 
   end
   scenario "an UN-authenticated user attempts review" do

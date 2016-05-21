@@ -9,7 +9,7 @@ gem 'foundation-rails'
 gem 'devise'
 gem 'simple_form'
 gem "carrierwave"
-
+gem 'mailcatcher'
 
 
 group :development, :test do

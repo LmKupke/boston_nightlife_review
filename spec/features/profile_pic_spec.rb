@@ -15,6 +15,6 @@ feature "profile photo" do
     click_button "Sign Up"
 
     expect(page).to have_content("Congrats! Write a review or submit a new bar/pub!")
-    expect(page).to have_css("img[src*='photo.png']")
+    expect(page).to have_css("img[src*='profile.png']")
   end
 end

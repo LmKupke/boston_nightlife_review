@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
     @review.venue_id = params[:venue_id]
 
     if @review.save
+      ReviewMailer.new_review(@review).deliver_later
       redirect_to venue_path(Venue.find(@review.venue_id))
     else
       redirect_to venue_path(Venue.find(@review.venue_id)), notice: "Review submission was not valid"
