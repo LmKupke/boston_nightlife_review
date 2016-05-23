@@ -10,10 +10,9 @@ gem 'devise'
 gem 'simple_form'
 gem "carrierwave"
 gem 'mailcatcher'
-
+gem 'pg_search'
 
 group :development, :test do
-  gem 'capybara'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '~> 3.0'
   gem 'pry-rails'

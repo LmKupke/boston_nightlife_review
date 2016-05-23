@@ -1,5 +1,7 @@
 class Venue < ActiveRecord::Base
-  # @allowed_types = [ "Bar", "Club"]
+  include PgSearch
+  pg_search_scope :search_by_vname_or_address, against: [:vname, :streetnumber, :streetname], using: { tsearch: { prefix: true} }
+
   NEIGHBORHOODS = [ "Allston", "Back Bay","Beacon Hill", "Brighton", "Brookline", "Cambridge", "Chinatown",
       "Dorchester", "East Boston", "Financial District", "Jamaica Plain", "Mattapan", "North End", "Roxbury", "Seaport", "Somerville", "South Boston", "South End", "Waterfront"]
 
